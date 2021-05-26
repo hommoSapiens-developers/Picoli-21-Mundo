@@ -50,7 +50,7 @@ public class Presupuesto {
 	private long getTotalParados(ArrayList<Adulto> parados) {
 		long total=0;
 		for (Adulto adulto : parados) {
-			total+=adulto.calculaNecesidad();
+			total+=adulto.getNecesidad();
 		}		
 		return total;
 	}
