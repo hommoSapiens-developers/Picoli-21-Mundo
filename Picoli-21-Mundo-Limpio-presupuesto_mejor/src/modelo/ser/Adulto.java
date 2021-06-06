@@ -2,7 +2,10 @@ package modelo.ser;
 
 public class Adulto implements Comportamiento{
 	private long ahorro;
-	private float produccionPotencial=10f;
+	private float produccionPotencial=450f;	
+	
+	Ser ser;
+	
 	
 	public long getAhorro() {
 		return ahorro;
@@ -28,7 +31,7 @@ public class Adulto implements Comportamiento{
 	}
 
 	private float recalcularEsperanzaDeVida(int sueldo, float esperanzaVida) {
-		if (sueldo>=100) {
+		if (sueldo>=Edades.adulto.getNecesidadVital()) {
 			return esperanzaVida;
 		}	
 		return esperanzaVida-=(float)sueldo/100;	
@@ -42,8 +45,15 @@ public class Adulto implements Comportamiento{
 		return 0;
 	}
 	
-	public float getProduccionPotencial() {
+	public float getPotenciaTrabajador() {
 		return this.produccionPotencial;
 	}
+	public int getSueldo() {
+		return ser.getSueldo();
 	}
+	public float getEsperanzaVida() {
+		return ser.getEsperanzaVida();
+	}
+	
+}
 	

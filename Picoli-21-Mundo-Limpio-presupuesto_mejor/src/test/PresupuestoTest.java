@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -11,11 +12,11 @@ import modelo.presupuesto.Presupuesto;
 import modelo.ser.Adulto;
 
 class PresupuestoTest {
-	ArrayList<Adulto> paradosList;
+	ArrayDeque<Adulto> paradosList;
 
 	@BeforeEach
 	public void before() {
-		paradosList = new ArrayList<>();
+		paradosList = new ArrayDeque<Adulto>();
 		paradosList.add(new Adulto());
 		paradosList.add(new Adulto());
 		paradosList.add(new Adulto());

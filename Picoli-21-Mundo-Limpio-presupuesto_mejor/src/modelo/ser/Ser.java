@@ -13,6 +13,7 @@ public class Ser {
 	private MyObservable obsDropSaving = new MyObservable();
 	protected float esperanzaVida;
 	protected int edad;
+	protected int sueldo;
 	public Comportamiento comportamiento;
 
 	public Ser() {
@@ -28,6 +29,7 @@ public class Ser {
 	public boolean envejecer() {
 		this.edad++;
 		if (!((Menor) this.comportamiento).viabilidadMenor()) {
+//			this.comportamiento.muere(this);
 			//hacer morir al ser si no es viable				
 			//Ser.muere();	
 		}
@@ -36,6 +38,7 @@ public class Ser {
 			//si el menor no alcanza el 55% del factor desarrollo
 			//no se le considera viable y ese ser muere
 			this.comportamiento = new Adulto();
+			
 			this.aAdultos.notifica(this);
 		}
 		if (this.pasaAAnciano()) {
@@ -99,10 +102,7 @@ public class Ser {
 		this.edad = edad;
 	}
 
-	protected void recalcularEsperanzaDeVida(int sueldo) {
-		// TODO recalculando
-		
-	}
+
 
 	public boolean pasaAAnciano() {
 		return edad == Edades.adulto.getEdadMaxima();
@@ -136,4 +136,7 @@ public class Ser {
         return (float) (uno.getPosY() - dos.getPosY()) / (uno.getPosX() - dos.getPosX());
     }
 	
+    public int getSueldo() {
+    	return this.sueldo;
+    }
 }
