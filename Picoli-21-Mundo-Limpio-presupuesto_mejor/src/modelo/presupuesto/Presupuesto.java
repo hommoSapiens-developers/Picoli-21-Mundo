@@ -1,5 +1,6 @@
 package modelo.presupuesto;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import modelo.ser.Adulto;
 import modelo.ser.Edades;
@@ -10,7 +11,7 @@ public class Presupuesto {
 	private long parados;
 
 	public Presupuesto(long cantidadMenores, long cantidadAncianos, 
-			long cantidadTrabajadores, ArrayList<Adulto> parados) {
+			long cantidadTrabajadores, ArrayDeque<Adulto> parados) {
 		sectores.add(this.menores = new Sector(.55f, 1f, cantidadMenores,Edades.menor));
 		sectores.add(this.ancianos = new Sector(.3f, 1f, cantidadAncianos,Edades.anciano));
 		sectores.add(this.trabajadores = new Sector(1f, 2f, cantidadTrabajadores,Edades.adulto));
@@ -47,7 +48,7 @@ public class Presupuesto {
 		return total;
 	}
 
-	private long getTotalParados(ArrayList<Adulto> parados) {
+	private long getTotalParados(ArrayDeque<Adulto> parados) {
 		long total=0;
 		for (Adulto adulto : parados) {
 			total+=adulto.getNecesidad();

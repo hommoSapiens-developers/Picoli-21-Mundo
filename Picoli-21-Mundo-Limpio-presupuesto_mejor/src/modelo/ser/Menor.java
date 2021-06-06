@@ -3,22 +3,32 @@ package modelo.ser;
 
 
 public class Menor implements Comportamiento{
-	public float factorDesarrollo = 5.5f;
+	public float incrementoFactorDesarrollo = 5.5f;
+	private float factorDesarrollo = 55f;
+	Ser ser;
 
 	@Override
 	public float alimentar(int sueldo,float esperanzaVida) {
-		// TODO ESTO ES CRECER EN EL MENOR
 		int necesidadVital=Edades.menor.getNecesidadVital();
 		if (sueldo<necesidadVital) {
-			factorDesarrollo=(factorDesarrollo*sueldo)/necesidadVital;
+			incrementoFactorDesarrollo=(incrementoFactorDesarrollo*sueldo)/necesidadVital;
+			this.factorDesarrollo+=incrementoFactorDesarrollo;
 		}
-		return this.factorDesarrollo;
+		return esperanzaVida;
 		}
 	public boolean viabilidadMenor() {
 		int minimoVieable=55;
 		
 		return this.factorDesarrollo>minimoVieable ;
 		
+	}
+	public int getSueldo() {
+		
+		return ser.getSueldo();
+	}
+	public float getEsperanzaVida() {
+		
+		return ser.getEsperanzaVida();
 	}
 		
 }
