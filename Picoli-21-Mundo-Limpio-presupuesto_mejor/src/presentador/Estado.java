@@ -2,6 +2,7 @@ package presentador;
 
 import java.util.ArrayList;
 
+import modelo.estado.MinisterioIndustria;
 import modelo.presupuesto.Presupuesto;
 import modelo.ser.Adulto;
 import modelo.ser.Ser;
@@ -24,6 +25,7 @@ public class Estado {
 	private final ArrayList<Ser> ancianos = new ArrayList<>();
 	private final ArrayList<Ser> trabajadores = new ArrayList<>();
 	private final ArrayList<Ser> parados = new ArrayList<>();
+	private MinisterioIndustria industria = new MinisterioIndustria();
 
 	public Estado(long demanda) {
 		for (int i = 0; i < demanda / potenciaTrabajador; i++) {
@@ -95,5 +97,8 @@ public class Estado {
 	private void naceSer() {
 		// TODO Auto-generated method stub
 
+	}
+	public long getCantidadTrabajadores() {
+		return industria.getSizeTrabajadores();
 	}
 }
